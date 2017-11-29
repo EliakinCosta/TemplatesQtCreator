@@ -1,0 +1,64 @@
+{
+    "version": 1,
+    "supportedProjectTypes": [ ],
+    "id": "Q.MegPlugin",
+    "category": "Z.Library",
+    "trDescription": "Creates a QML file and json with basic code.",
+    "trDisplayName": "Meg Plugin (Qt Quick 2)",
+    "trDisplayCategory": "Plugin",
+    "iconText": "qml",
+    "options":
+    [
+      { "key": "ProjectNameLowerCase",  "value": "%{JS: '%{ProjectName}'.toLowerCase()}" },
+      { "key": "ProjectNameCapitalize", "value": "%{JS: '%{ProjectName}'.charAt(0).toUpperCase() + '%{ProjectName}'.slice(1).toLowerCase()}" }
+    ],
+    "pages" :
+    [
+      {
+        "trDisplayName": "Plugins Location",
+        "trShortTitle": "Location",
+        "typeId": "Fields",
+        "data" :[
+          {
+              "name": "TargetPath",
+              "type": "PathChooser",
+              "trDisplayName": "Path:",
+              "mandatory": true,
+              "data":
+              {
+                  "kind": "directory",
+                  "basePath": "%{InitialPath}",
+                  "path": "%{InitialPath}"
+              }
+          },
+          {
+               "name": "ProjectName",
+               "trDisplayName": "Plugin Name:",
+               "mandatory": true,
+               "type": "LineEdit",
+               "data": {}
+           }
+        ]
+      }
+    ],
+    "generators" :
+    [
+        {
+            "typeId": "File",
+            "data":
+            {
+                "source": "pluginname.qml.tpl",
+                "target": "%{TargetPath}/%{ProjectNameLowerCase}/%{ProjectNameLowerCase}.qml",
+                "openInEditor": true
+            }
+        },
+        {
+            "typeId": "File",
+            "data":
+            {
+                "source": "pluginname.json.tpl",
+                "target": "%{TargetPath}/%{ProjectNameLowerCase}/%{ProjectNameLowerCase}.json"
+            }
+        }
+    ]
+}
