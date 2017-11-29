@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>AwesomeToolButton.qml</file>
+        <file>FontAwesome.otf</file>
+        <file>FontAwesome.js</file>
+        <file>Icon.qml</file>
+    </qresource>
+</RCC>
